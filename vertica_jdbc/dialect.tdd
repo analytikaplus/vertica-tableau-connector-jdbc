@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<dialect name='SimpleVertica'
+         class='vertica_jdbc'
+         base='VerticaDialect'
+         version='18.1'>
+</dialect>

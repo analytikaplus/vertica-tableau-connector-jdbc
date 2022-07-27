@@ -1,0 +1,1 @@
+Vertica JDBC Connector by ANALYTIKA PLUS. 
