@@ -3,4 +3,32 @@
          class='vertica_jdbc'
          base='VerticaDialect'
          version='18.1'>
+  <function-map>
+    <function group='aggregate' name='MEDIAN' return-type='real'>
+      <formula>APPROXIMATE_PERCENTILE(%1 USING PARAMETERS percentile='0.5')</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='real' />
+    </function>
+    <function group='aggregate' name='MEDIAN' return-type='int'>
+      <formula>APPROXIMATE_PERCENTILE(%1 USING PARAMETERS percentile='0.5')</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='PERCENTILE' return-type='real'>
+      <formula>APPROXIMATE_PERCENTILE(%1 USING PARAMETERS percentile='%2')</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='real' />
+      <argument type='localreal' />
+    </function>
+    <function group='aggregate' name='PERCENTILE' return-type='real'>
+      <formula>APPROXIMATE_PERCENTILE(%1 USING PARAMETERS percentile='%2')</formula>
+      <unagg-formula>%1</unagg-formula>
+      <argument type='int' />
+      <argument type='localreal' />
+    </function>
+  </function-map>
+  <supported-aggregations>
+    <aggregation value='AGG_MEDIAN'/>
+    <aggregation value='AGG_PERCENTILE'/>
+  </supported-aggregations>
 </dialect>
